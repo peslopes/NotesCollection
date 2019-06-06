@@ -15,6 +15,7 @@
 		3355F6B822A99E21001FDE0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3355F6B622A99E21001FDE0E /* LaunchScreen.storyboard */; };
 		3355F6C322A9A502001FDE0E /* NoteType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3355F6C222A9A502001FDE0E /* NoteType.swift */; };
 		3355F6C522A9AB4A001FDE0E /* PostItCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3355F6C422A9AB4A001FDE0E /* PostItCollectionTableViewCell.swift */; };
+		3355F6C722A9ACAF001FDE0E /* PostItCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3355F6C622A9ACAF001FDE0E /* PostItCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		3355F6B922A99E21001FDE0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3355F6C222A9A502001FDE0E /* NoteType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteType.swift; sourceTree = "<group>"; };
 		3355F6C422A9AB4A001FDE0E /* PostItCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItCollectionTableViewCell.swift; sourceTree = "<group>"; };
+		3355F6C622A9ACAF001FDE0E /* PostItCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				3355F6C422A9AB4A001FDE0E /* PostItCollectionTableViewCell.swift */,
 				3355F6AE22A99E20001FDE0E /* Main.storyboard */,
 				3355F6B622A99E21001FDE0E /* LaunchScreen.storyboard */,
+				3355F6C622A9ACAF001FDE0E /* PostItCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				3355F6AD22A99E20001FDE0E /* ViewController.swift in Sources */,
 				3355F6C322A9A502001FDE0E /* NoteType.swift in Sources */,
 				3355F6AB22A99E20001FDE0E /* AppDelegate.swift in Sources */,
+				3355F6C722A9ACAF001FDE0E /* PostItCollectionViewCell.swift in Sources */,
 				3355F6C522A9AB4A001FDE0E /* PostItCollectionTableViewCell.swift in Sources */,
 				3355F6B322A99E20001FDE0E /* NotesCollection.xcdatamodeld in Sources */,
 			);
