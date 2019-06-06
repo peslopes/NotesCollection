@@ -59,19 +59,4 @@ enum NoteType: CaseIterable {
             return "pinkBody"
         }
     }
-    
-    var tintColor: String {
-        switch self {
-        case .yellow:
-            return "yellowTint"
-        case .orange:
-            return "orangeTint"
-        case .green:
-            return "greenTint"
-        case .blue:
-            return "blueTint"
-        case .pink:
-            return "pinkTint"
-        }
-    }
 }
