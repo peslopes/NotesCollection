@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="117" id="iHN-Yz-PXa">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="117" id="iHN-Yz-PXa" customClass="PostItCollectionTableViewCell" customModule="NotesCollection" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iHN-Yz-PXa" id="nUJ-wk-s0d">
@@ -57,6 +57,9 @@
                                                 <constraint firstAttribute="trailing" secondItem="7SG-mL-CEa" secondAttribute="trailing" id="zms-mR-pTO"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="postItCollection" destination="7SG-mL-CEa" id="03d-Qh-5Xv"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
