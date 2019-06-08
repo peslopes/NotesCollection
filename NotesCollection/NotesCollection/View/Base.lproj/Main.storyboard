@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,34 +19,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="unL-iO-XAG">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="unL-iO-XAG">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="117" id="iHN-Yz-PXa" customClass="PostItCollectionTableViewCell" customModule="NotesCollection" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="117"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="200" id="iHN-Yz-PXa" customClass="PostItCollectionTableViewCell" customModule="NotesCollection" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iHN-Yz-PXa" id="nUJ-wk-s0d">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="116.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7SG-mL-CEa">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="116.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hfh-yq-SSZ">
-                                                        <size key="itemSize" width="50" height="50"/>
+                                                        <size key="itemSize" width="200" height="160"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="aYd-lR-Yh3" customClass="PostItCollectionViewCell" customModule="NotesCollection" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="160"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="200" height="160"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="93b-J6-ePq">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="47"/>
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        <color key="backgroundColor" name="YellowDark"/>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ufM-Si-Nj8">
+                                                                        <rect key="frame" x="0.0" y="47" width="200" height="113"/>
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        <color key="backgroundColor" name="YellowLight"/>
+                                                                    </view>
+                                                                </subviews>
                                                             </view>
+                                                            <connections>
+                                                                <segue destination="yKH-Kc-0ir" kind="show" identifier="editNote" id="vA5-vp-eFA"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
@@ -75,30 +91,107 @@
                     </view>
                     <navigationItem key="navigationItem" title="Notes Collection" id="QVX-G8-stG">
                         <barButtonItem key="backBarButtonItem" title=" " id="rOb-3X-SBc"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZgO-rI-fg8"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZgO-rI-fg8">
+                            <connections>
+                                <action selector="createNote:" destination="BYZ-38-t0r" id="50M-W9-SBH"/>
+                                <segue destination="yKH-Kc-0ir" kind="show" id="6nR-LW-efB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="yKH-Kc-0ir" kind="show" id="A4G-xe-TUY"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="114.50892857142857"/>
         </scene>
-        <!--View Controller-->
+        <!--Second View Controller-->
         <scene sceneID="den-Er-V7h">
             <objects>
-                <viewController id="yKH-Kc-0ir" sceneMemberID="viewController">
+                <viewController id="yKH-Kc-0ir" customClass="SecondViewController" customModule="NotesCollection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nQF-lQ-CCj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cLT-kX-27C">
+                                <rect key="frame" x="0.0" y="88" width="414" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Don't forget to set a title!" placeholder="Your title here" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rVL-ob-MHO">
+                                        <rect key="frame" x="20" y="20" width="374" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" name="YellowDark"/>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" text="Your text here! 😍" translatesAutoresizingMaskIntoConstraints="NO" id="Ocv-qx-ayb">
+                                <rect key="frame" x="20" y="180" width="374" height="622"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FeI-kL-yT3">
+                                <rect key="frame" x="92" y="822" width="230" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DqR-NC-3M5">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <color key="backgroundColor" name="YellowDark"/>
+                                        <connections>
+                                            <action selector="yellowButton:" destination="yKH-Kc-0ir" eventType="touchUpInside" id="fG9-Mo-LpP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Arr-b4-b7u">
+                                        <rect key="frame" x="50" y="0.0" width="30" height="30"/>
+                                        <color key="backgroundColor" name="OrangeDark"/>
+                                        <connections>
+                                            <action selector="orangeButton:" destination="yKH-Kc-0ir" eventType="touchUpInside" id="qLe-od-biB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0y-IQ-b0B">
+                                        <rect key="frame" x="100" y="0.0" width="30" height="30"/>
+                                        <color key="backgroundColor" name="GreenDark"/>
+                                        <connections>
+                                            <action selector="greenButton:" destination="yKH-Kc-0ir" eventType="touchUpInside" id="4Od-B3-ukD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATa-E7-0TG">
+                                        <rect key="frame" x="150" y="0.0" width="30" height="30"/>
+                                        <color key="backgroundColor" name="BlueDark"/>
+                                        <connections>
+                                            <action selector="blueButton:" destination="yKH-Kc-0ir" eventType="touchUpInside" id="SH3-Kn-7mg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRd-Vi-PuO">
+                                        <rect key="frame" x="200" y="0.0" width="30" height="30"/>
+                                        <color key="backgroundColor" name="PinkDark"/>
+                                        <connections>
+                                            <action selector="pinkButton:" destination="yKH-Kc-0ir" eventType="touchUpInside" id="qao-F0-v2P"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="YellowLight"/>
                         <viewLayoutGuide key="safeArea" id="sdV-vU-rMb"/>
                     </view>
+                    <navigationItem key="navigationItem" id="86H-NO-MLe"/>
+                    <connections>
+                        <outlet property="blueButtonOutlet" destination="ATa-E7-0TG" id="kfs-KE-KJD"/>
+                        <outlet property="bodyTextView" destination="Ocv-qx-ayb" id="juV-U7-wlJ"/>
+                        <outlet property="greenButtonOutlet" destination="t0y-IQ-b0B" id="F6m-pB-8MK"/>
+                        <outlet property="navItem" destination="86H-NO-MLe" id="6bS-fd-bYY"/>
+                        <outlet property="orangeButtonOutlet" destination="Arr-b4-b7u" id="YUO-LC-iM9"/>
+                        <outlet property="pinkButtonOutlet" destination="iRd-Vi-PuO" id="16t-Hp-xE5"/>
+                        <outlet property="titleTextField" destination="rVL-ob-MHO" id="IxZ-oF-qTt"/>
+                        <outlet property="titleView" destination="cLT-kX-27C" id="Gng-iq-ntg"/>
+                        <outlet property="yellowButtonOutlet" destination="DqR-NC-3M5" id="Jm5-VJ-6Jy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ed-6O-ZhX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1951" y="115"/>
+            <point key="canvasLocation" x="1871.0144927536232" y="114.50892857142857"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DO0-Hx-KHl">
@@ -119,4 +212,27 @@
             <point key="canvasLocation" x="194" y="115"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="BlueDark">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GreenDark">
+            <color red="0.29803921568627451" green="0.85098039215686272" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="OrangeDark">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PinkDark">
+            <color red="1" green="0.47450980392156861" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="YellowDark">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="YellowLight">
+            <color red="1" green="0.9137254901960784" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="vA5-vp-eFA"/>
+    </inferredMetricsTieBreakers>
 </document>
