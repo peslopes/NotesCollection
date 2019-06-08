@@ -60,7 +60,7 @@
                                                                 </subviews>
                                                             </view>
                                                             <connections>
-                                                                <segue destination="yKH-Kc-0ir" kind="show" identifier="editNote" id="vA5-vp-eFA"/>
+                                                                <segue destination="yKH-Kc-0ir" kind="show" id="8UZ-h0-Lka"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -94,7 +94,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZgO-rI-fg8">
                             <connections>
                                 <action selector="createNote:" destination="BYZ-38-t0r" id="50M-W9-SBH"/>
-                                <segue destination="yKH-Kc-0ir" kind="show" id="6nR-LW-efB"/>
+                                <segue destination="yKH-Kc-0ir" kind="show" id="Jk5-W7-S7e"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -233,6 +233,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vA5-vp-eFA"/>
+        <segue reference="Jk5-W7-S7e"/>
     </inferredMetricsTieBreakers>
 </document>
