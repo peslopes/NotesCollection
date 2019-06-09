@@ -12,8 +12,11 @@ import CoreData
 class PostItCollectionTableViewCell: UITableViewCell {
     @IBOutlet weak var postItCollection: UICollectionView!
     
+    var notes: [PostIt]!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        postItCollection.dataSource = self
         // Initialization code
     }
 
@@ -22,5 +25,35 @@ class PostItCollectionTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func setCollectionViewDelegate(delegate: UICollectionViewDelegate) {
+        postItCollection.delegate = delegate
+        postItCollection.reloadData()
+    }
 
+}
+
+extension PostItCollectionTableViewCell: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return notes.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = postItCollection.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as? PostItCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        cell.bodyLabel.text = notes[indexPath.row].body
+        cell.titleLabel.text = notes[indexPath.row].title
+        cell.noteView.backgroundColor = UIColor(named: notes[indexPath.row].noteType.bodyColor)
+        cell.titleView.backgroundColor = UIColor(named: notes[indexPath.row].noteType.titleColor)
+        cell.bodyView.backgroundColor = UIColor(named: notes[indexPath.row].noteType.bodyColor)
+//        cell.bodyView.layer.cornerRadius = 10
+//        cell.titleView.layer.cornerRadius = 10
+//        cell.noteView.layer.cornerRadius = 10
+        
+        return cell
+    }
+    
+    
 }

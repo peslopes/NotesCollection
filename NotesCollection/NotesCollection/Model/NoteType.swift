@@ -33,30 +33,30 @@ enum NoteType: CaseIterable {
     var titleColor: String {
         switch self {
         case .yellow:
-            return "yellowTitle"
+            return "YellowDark"
         case .orange:
-            return "orangeTitle"
+            return "OrangeDark"
         case .green:
-            return "greenTitle"
+            return "GreenDark"
         case .blue:
-            return "blueTitle"
+            return "BlueDark"
         case .pink:
-            return "pinkTitle"
+            return "PinkDark"
         }
     }
     
     var bodyColor: String {
         switch self {
         case .yellow:
-            return "yellowBody"
+            return "YellowLight"
         case .orange:
-            return "orangeBody"
+            return "OrangeLight"
         case .green:
-            return "greenBody"
+            return "GreenLight"
         case .blue:
-            return "blueBody"
+            return "BlueLight"
         case .pink:
-            return "pinkBody"
+            return "PinkLight"
         }
     }
 }
