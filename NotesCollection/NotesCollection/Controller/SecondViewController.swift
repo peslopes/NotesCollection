@@ -21,12 +21,16 @@ class SecondViewController: UIViewController {
     
     @IBOutlet weak var navItem: UINavigationItem!
     
+    var type: NoteType!
+    var postIt: PostIt!
+    var postItIndex: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.beautifyScreen()
-        //      essa linha vai sair quando for feita a função segue, pq ela vai chamar a função setData(title:body:lightBackground:darkBackground), e ela mesma muda o background!
-        self.navigationController?.navigationBar.barTintColor = UIColor(named: "YellowDark")
+        setData(title: postIt.title, body: postIt.body, lightBackground: postIt.noteType.bodyColor, darkBackground: postIt.noteType.titleColor)
+        type = postIt.noteType
     }
     
     func beautifyScreen () {
@@ -64,33 +68,52 @@ class SecondViewController: UIViewController {
     
     @objc func saveInformation () {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
-        print("not saving yet")
+        if let viewController = self.navigationController?.viewControllers[0] as? ViewController {
+            viewController.comeFromSecondView = true
+            viewController.infosFromSecondView = SecondViewInfos(index: postItIndex, postIt: PostIt(title: titleTextField.text!, body: bodyTextView.text, noteType: type, objectID: postIt.objectID))
+        }
         self.navigationController?.popToRootViewController(animated: true)
         self.navigationController?.navigationBar.barTintColor = UIColor(named: "YellowDark")
     }
     
     @IBAction func yellowButton(_ sender: Any) {
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
         changeType(lightColor: "YellowLight", darkColor: "YellowDark")
+        type = .yellow
     }
     @IBAction func orangeButton(_ sender: Any) {
-        changeType(lightColor: "OrangeLight", darkColor: "OrangeDark")
-    }
-    @IBAction func greenButton(_ sender: Any) {
-        changeType(lightColor: "GreenLight", darkColor: "GreenDark")
-    }
-    @IBAction func blueButton(_ sender: Any) {
-        changeType(lightColor: "BlueLight", darkColor: "BlueDark")
-    }
-    @IBAction func pinkButton(_ sender: Any) {
-        changeType(lightColor: "PinkLight", darkColor: "PinkDark")
-    }
-    func changeType (lightColor: String, darkColor: String) {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
         UIView.animate(withDuration: 0.2, animations: {
+            self.changeType(lightColor: "OrangeLight", darkColor: "OrangeDark")
+        })
+        type = .orange
+    }
+    @IBAction func greenButton(_ sender: Any) {
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        UIView.animate(withDuration: 0.2, animations: {
+            self.changeType(lightColor: "GreenLight", darkColor: "GreenDark")
+        })
+        type = .green
+    }
+    @IBAction func blueButton(_ sender: Any) {
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            self.changeType(lightColor: "BlueLight", darkColor: "BlueDark")
+        })
+        type = .blue
+    }
+    @IBAction func pinkButton(_ sender: Any) {
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        UIView.animate(withDuration: 0.2, animations: {
+            self.changeType(lightColor: "PinkLight", darkColor: "PinkDark")
+        })
+        type = .pink
+    }
+    func changeType (lightColor: String, darkColor: String) {
             self.titleView.backgroundColor = UIColor(named: darkColor)
             self.view.backgroundColor = UIColor(named: lightColor)
             self.navigationController?.navigationBar.barTintColor = UIColor(named: darkColor)
-        })
     }
     
 }
