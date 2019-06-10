@@ -48,11 +48,11 @@ extension PostItCollectionTableViewCell: UICollectionViewDataSource {
         cell.noteView.backgroundColor = UIColor(named: notes[indexPath.row].noteType.bodyColor)
         cell.titleView.backgroundColor = UIColor(named: notes[indexPath.row].noteType.titleColor)
         cell.bodyView.backgroundColor = UIColor(named: notes[indexPath.row].noteType.bodyColor)
-        
+//        beautifying cell
         cell.titleView.roundTop()
         cell.bodyView.roundBottom()
-        cell.noteView.backgroundColor = .white
-        cell.noteView.addNoteTypeShaddow()
+        cell.noteView.backgroundColor = UIColor(white: 1, alpha: 0)
+        cell.addNoteTypeShaddow()
         
         return cell
     }
