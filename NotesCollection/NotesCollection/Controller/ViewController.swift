@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        categorias = [.yellow, .orange, .blue, .green, .pink]
+        categorias = [.yellow, .orange, .green, .blue, .pink]
         tableView.dataSource = self
         // Do any additional setup after loading the view.
         self.navigationController?.navigationBar.barTintColor = UIColor(named: "YellowDark")

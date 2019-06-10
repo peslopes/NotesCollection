@@ -26,4 +26,16 @@ extension UIView {
         layer.shadowOffset = CGSize(width: 0, height: 2)
     }
     
+    func roundTop () {
+        self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        self.layer.cornerRadius = 15
+        self.layer.masksToBounds = true
+    }
+    
+    func roundBottom () {
+        self.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        self.layer.cornerRadius = 15
+        self.layer.masksToBounds = true
+    }
+    
 }

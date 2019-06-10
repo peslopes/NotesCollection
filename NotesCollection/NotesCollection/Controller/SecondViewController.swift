@@ -52,6 +52,13 @@ class SecondViewController: UIViewController {
         self.greenButtonOutlet.addButtonTypeShaddow()
         self.blueButtonOutlet.addButtonTypeShaddow()
         self.pinkButtonOutlet.addButtonTypeShaddow()
+//        dismiss keyboard
+        self.view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
+//        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
+    }
+    
+    @objc func dismissKeyboard () {
+        self.view.endEditing(true)
     }
     
     func setData (title: String, body: String, lightBackground: String, darkBackground: String) {
@@ -61,13 +68,13 @@ class SecondViewController: UIViewController {
     }
     
     @objc func cancelAction () {
-        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
         self.navigationController?.popToRootViewController(animated: true)
         self.navigationController?.navigationBar.barTintColor = UIColor(named: "YellowDark")
     }
     
     @objc func saveInformation () {
-        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
         if let viewController = self.navigationController?.viewControllers[0] as? ViewController {
             viewController.comeFromSecondView = true
             viewController.infosFromSecondView = SecondViewInfos(index: postItIndex, postIt: PostIt(title: titleTextField.text!, body: bodyTextView.text, noteType: type, objectID: postIt.objectID))
@@ -83,37 +90,30 @@ class SecondViewController: UIViewController {
     }
     @IBAction func orangeButton(_ sender: Any) {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
-        UIView.animate(withDuration: 0.2, animations: {
-            self.changeType(lightColor: "OrangeLight", darkColor: "OrangeDark")
-        })
+        self.changeType(lightColor: "OrangeLight", darkColor: "OrangeDark")
         type = .orange
     }
     @IBAction func greenButton(_ sender: Any) {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
-        UIView.animate(withDuration: 0.2, animations: {
-            self.changeType(lightColor: "GreenLight", darkColor: "GreenDark")
-        })
+        self.changeType(lightColor: "GreenLight", darkColor: "GreenDark")
         type = .green
     }
     @IBAction func blueButton(_ sender: Any) {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
-        
-        UIView.animate(withDuration: 0.2, animations: {
-            self.changeType(lightColor: "BlueLight", darkColor: "BlueDark")
-        })
+        self.changeType(lightColor: "BlueLight", darkColor: "BlueDark")
         type = .blue
     }
     @IBAction func pinkButton(_ sender: Any) {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
-        UIView.animate(withDuration: 0.2, animations: {
-            self.changeType(lightColor: "PinkLight", darkColor: "PinkDark")
-        })
+        changeType(lightColor: "PinkLight", darkColor: "PinkDark")
         type = .pink
     }
     func changeType (lightColor: String, darkColor: String) {
+        UIView.animate(withDuration: 0.2, animations: {
             self.titleView.backgroundColor = UIColor(named: darkColor)
             self.view.backgroundColor = UIColor(named: lightColor)
             self.navigationController?.navigationBar.barTintColor = UIColor(named: darkColor)
+        })
     }
     
 }
