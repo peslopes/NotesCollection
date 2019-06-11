@@ -12,14 +12,13 @@ import CoreData
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    var categorias: [NoteType]!
+    var categorias: [NoteType] = []
     var items: [NSManagedObject] = []
     var comeFromSecondView = false
     var infosFromSecondView: SecondViewInfos!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        categorias = [.yellow, .orange, .green, .blue, .pink]
         tableView.dataSource = self
         // Do any additional setup after loading the view.
         self.navigationController?.navigationBar.barTintColor = UIColor(named: "YellowDark")
@@ -31,6 +30,7 @@ class ViewController: UIViewController {
             comeFromSecondView = false
             editNote(currentPostIt: infosFromSecondView.postIt)
         }
+        getCategories()
         tableView.reloadData()
     }
     
@@ -45,6 +45,26 @@ class ViewController: UIViewController {
         } catch let err as NSError {
             print(err)
         }
+    }
+    
+    func getCategories() {
+        let allCategorias: [NoteType] = [.yellow, .orange, .green, .blue, .pink]
+        var someCategories: [NoteType] = []
+        items.forEach {
+            if $0.value(forKey: "type") != nil {
+                if !someCategories.contains(getType(from: $0.value(forKey: "type") as! String)) {
+                    someCategories.append(getType(from: $0.value(forKey: "type") as! String))
+                }
+            }
+        }
+        categorias = []
+        for category in allCategorias {
+            if someCategories.contains(category) {
+                categorias.append(category)
+            }
+        }
+        print("")
+        
     }
     
     func editNote(currentPostIt: PostIt) {
